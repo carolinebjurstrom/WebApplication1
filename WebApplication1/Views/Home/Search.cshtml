@@ -1,0 +1,56 @@
+﻿@model WebApplication1.ViewModels.SearchNameViewModel
+
+@{
+    ViewData["Title"] = "Search name";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-controller="Home" asp-action="Search" method="post">
+    <p>
+        Search for name: <input asp-for="Name" />
+        <input type="submit" value="Search" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Reversed name
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+
+            @foreach (var person in Model.PersonSearch)
+            {
+                <tr>
+                    <td>
+                        @person.Id
+                    </td>
+                    <td>
+                        @person.Name
+                    </td>
+                    <td>
+                        @person.NewName.Replace(" ", "")
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+

@@ -1,0 +1,21 @@
+﻿@model WebApplication1.ViewModels.HomePageViewModel
+
+@{
+    ViewData["Title"] = "Create name";
+}
+
+<h2>Enter your name:</h2>
+<form asp-controller="Home" asp-action="Index" method="post"
+      asp-route-returnurl="@Model.ReturnUrl">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div>
+    <input type="submit" value="Save" />
+    </div>
+    <div>
+        <label asp-for="Name">@Model.Name</label>
+    </div>
+</form>
